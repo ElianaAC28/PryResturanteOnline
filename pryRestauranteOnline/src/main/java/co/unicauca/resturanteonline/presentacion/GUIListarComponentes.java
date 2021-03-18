@@ -28,30 +28,80 @@ public class GUIListarComponentes extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblTitulo.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         lblTitulo.setText("LISTA DE COMPONENTES");
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        btnCerrar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addGap(336, 336, 336))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(343, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(267, Short.MAX_VALUE)
                 .addComponent(lblTitulo)
-                .addGap(293, 293, 293))
+                .addGap(263, 263, 263))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitulo)
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                .addGap(3, 3, 3)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +139,10 @@ public class GUIListarComponentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
